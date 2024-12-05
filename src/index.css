@@ -2,3 +2,11 @@
   margin: 0;
   padding: 0;
 }
+
+body{
+  background: rgb(39, 39, 39);
+  color: white;
+  font-family: 'Lobster',Verdana, Geneva, Tahoma, sans-serif;
+  overflow-x: hidden;
+  padding-left: 5px;
+}

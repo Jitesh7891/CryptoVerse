@@ -1,0 +1,66 @@
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(16, 16, 16);
+    padding-bottom: 1rem ;
+    padding-top: 0.3rem;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    min-height: 13vh;
+}
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+    box-sizing: content-box;
+    justify-content: flex-end;
+    width: 40%;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo>a{
+    text-decoration: none;
+    color: white;
+    outline: none;
+}
+
+@media screen and (max-width: 700px) {
+    .logo h1{
+        font-size: 1rem;
+    }  
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        min-height: 10vh;
+        padding: 0 10px;
+    }
+    .navbar ul{
+        margin-left: unset;
+        width: unset;
+        margin-right: 5vw;
+        padding: 0;
+        align-items: flex-start;
+    }
+    .navbar ul li a{
+        margin-left: 10px;
+        font-size: 15px;
+    }
+    
+
+}
