@@ -1,0 +1,36 @@
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%; /* No fixed width */
+    min-height: 70vh;
+    min-width: 60vw;
+  }
+
+  .chart{
+    min-height: 35vh;
+  }
+
+  .btn button {
+    padding: 10px;
+    font-size: 14px;
+    flex: 1; 
+    max-width: 150px; 
+  }
+  
+  /* Adjust for smaller screens */
+  @media screen and (max-width: 768px) {
+    .btn button {
+      font-size: 12px;
+      padding: 7px;
+      margin-right: 3vw;
+      margin-left: -1vw;
+    }
+    .chart-container{
+        margin-top: 5vh;
+    }
+  }
+  

@@ -4,9 +4,12 @@ import axios from "axios";
 import { Baseurl } from '../baseUrl';
 import Loader from '../Loader.jsx';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 import './coins.css';
 
 const Coins = () => {
+  const navigate = useNavigate();
+  
   const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
@@ -105,7 +108,7 @@ const Coins = () => {
                     coin.name.toLowerCase().includes(search.toLowerCase())
                   )
                   .map((coin, index) => (
-                    <tr key={index}>
+                    <tr key={index} style={{cursor:"pointer"}} onClick={() => navigate(`/coins/${coin.id}`)}  >
                       <td>{coin.name}</td>
                       <td>{currencySymbol}{coin.current_price.toFixed(2)}</td>
                       <td>{currencySymbol}{coin.market_cap}</td>
