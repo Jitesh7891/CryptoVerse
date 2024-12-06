@@ -99,6 +99,11 @@ button {
     min-width: 14vw;
 }
 
+.btns>button:hover {
+    background-color: #af4fe7;
+    transform: scale(1.1); 
+    box-shadow: 0 4px 10px rgba(175, 79, 231, 0.6); /* Add glowing shadow */
+  }
 
 .search-bar input {
     height: 1.7rem;
