@@ -1,0 +1,200 @@
+.coin-container {
+    margin-top: 23vh;
+    padding: 2rem;
+    min-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+    scroll-behavior: none;
+    z-index: 2;
+}
+
+.coin-table-container {
+    max-height: 48vh;/* Limit the height for scrolling */
+    overflow-y: auto;
+    background-color: rgb(39, 39, 39);
+}
+
+.coins-title {
+    display: flex;
+    width: 99vw;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: fixed;
+    top: 18vh;
+}
+
+.coin-table {
+    width: 98%;
+    margin: 0 auto;
+    color: rgb(234, 255, 255);
+}
+
+.coin-table thead th {
+    position: sticky;
+    top: -0.15rem;
+    background-color: rgb(39, 39, 39);
+    z-index: 2;
+    padding: 1rem;
+    color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.coin-table th,
+.coin-table td {
+    padding: 1rem;
+    padding-top: 2rem;
+    text-align: center;
+    border: 1px solid rgb(60, 60, 60);
+}
+
+.coin-table th {
+    background-color: rgb(39, 39, 39);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.coin-table td img {
+    height: 50px;
+}
+
+.coin-table tr:nth-child(even) {
+    background-color: rgb(45, 45, 45);
+}
+
+.coin-table tr:nth-child(odd) {
+    background-color: rgb(35, 35, 35);
+}
+
+
+button {
+    background-color: #444;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btns {
+    width: 100vw;
+    top: 11rem;
+    z-index: 4;
+    position: sticky;
+    margin-bottom: 6vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btns>button {
+    background-color: rgb(93 93 255);
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    min-width: 14vw;
+}
+
+
+.search-bar input {
+    height: 1.7rem;
+    border-radius: 50px;
+    width: 14rem;
+    z-index: 5;
+    position: fixed;
+    top: 5%;
+    left: 40%;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+
+    .btns>button {
+        font-size: 0.8rem;
+        flex: 1 1 45%;
+        max-width: 39vw;
+        margin-top: 2vh;
+    }
+
+    .coins-title {
+        font-size: 2.2rem;
+        top: 18vh;
+    }
+
+    .coin-container {
+        margin-top: 18vh;
+        padding-left: 0;
+    }
+
+    .coin-table th,
+    .coin-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .coin-table td img {
+        height: 30px;
+    }
+
+    .coin-headings {
+        width: 100vw;
+        letter-spacing: 0;
+        font-size: 12px;
+        margin-left: 1rem;
+        padding-left: 10px;
+        margin-top: 8px;
+    }
+
+    .coins-body {
+        font-size: 10px;
+    }
+
+    .coins-image>img {
+        position: relative;
+        right: 3rem;
+        height: 50px;
+        width: 50px;
+    }
+
+    .coin-heading-symbol {
+        left: 1.2rem;
+    }
+
+    .btns {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .coins-body {
+        margin-right: 0;
+        margin-top: 20rem;
+        padding-left: 12px;
+    }
+
+    .coin-heading-name {
+        left: 0;
+    }
+
+    .coin-heading-percent {
+        position: relative;
+        left: 1rem;
+    }
+
+    .coin-heading-price {
+        left: 1.8rem;
+    }
+
+    .search-bar input {
+        top: 12%;
+        left: 7%;
+        max-width: 70vw;
+    }
+}

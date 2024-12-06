@@ -5,7 +5,7 @@ import { FaEthereum } from "react-icons/fa"
 
 const Header = () => {
   return (
-    <navbar className='navbar' >
+    <nav className='navbar' >
         <div className="logo">
             <Link to='/'>
             <h1>CryptoVerse</h1>
@@ -15,7 +15,7 @@ const Header = () => {
       <ul>
         <li> <Link to='/coins'>Coins</Link></li>
       </ul>
-    </navbar>
+    </nav>
   )
 }
 
