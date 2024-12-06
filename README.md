@@ -12,7 +12,7 @@ Installation
 git clone https://github.com/Jitesh7891/CryptoVerse.git
 
 2.Navigate to the project directory:
-cd api-integration-dashboard
+cd CryptoVerse
 
 3.Install dependencies:
 npm install
