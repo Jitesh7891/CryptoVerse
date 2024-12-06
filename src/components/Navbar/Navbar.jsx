@@ -13,7 +13,7 @@ const Header = () => {
             <FaEthereum color='#00FF00' size={"25"} style={{marginLeft:"5px"}} /> 
         </div>
       <ul>
-        <li> <Link to='/coins'>Coins</Link></li>
+        <li> <Link to='/exchanges'>Exchanges</Link></li>
       </ul>
     </nav>
   )

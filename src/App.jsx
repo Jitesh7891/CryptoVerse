@@ -8,8 +8,8 @@ const App = () => {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Exchanges />} />
-      <Route path='/coins' element={<Coins />} />
+      <Route path='/exchanges' element={<Exchanges />} />
+      <Route path='/' element={<Coins />} />
       <Route path='/coins/:id' element={<CoinDetails />} />
     </Routes>
   </BrowserRouter>

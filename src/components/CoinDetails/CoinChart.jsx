@@ -1,7 +1,10 @@
+// Import necessary dependencies and components
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Baseurl } from "../baseUrl";
 import { useParams } from "react-router-dom";
+
+// Import Chart.js modules for rendering line charts
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,9 +16,12 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+
+// Import custom components and styles
 import Loader from "../Loader";
 import "./CoinChart.css";
 
+// Register Chart.js modules
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,11 +33,13 @@ ChartJS.register(
 );
 
 const CoinChart = ({ currency = "usd" }) => {
-  const [chartData, setChartData] = useState([]);
-  const { id } = useParams();
-  const [days, setDays] = useState(1);
-  const [isMobile, setIsMobile] = useState(false);
+  // Define state variables
+  const [chartData, setChartData] = useState([]); // Stores fetched chart data
+  const { id } = useParams(); // Retrieves `id` from URL parameters
+  const [days, setDays] = useState(1); // Time period for chart data (1 day, 7 days, etc.)
+  const [isMobile, setIsMobile] = useState(false); // Tracks if the device is mobile
 
+  // Fetch chart data from the API
   const CoinChartData = async () => {
     try {
       const { data } = await axios.get(
@@ -43,26 +51,29 @@ const CoinChart = ({ currency = "usd" }) => {
     }
   };
 
-  // Detect screen size
+  // Detect if the user is on a mobile device
   const detectMobile = () => {
-    setIsMobile(window.innerWidth <= 768); // Set true for screen width <= 768px
+    setIsMobile(window.innerWidth <= 768); // Set `isMobile` to true for screen width <= 768px
   };
 
+  // Set up event listener for screen resizing
   useEffect(() => {
-    detectMobile();
-    window.addEventListener("resize", detectMobile); // Add listener for screen resize
+    detectMobile(); // Initial detection
+    window.addEventListener("resize", detectMobile); // Listen for screen resize
     return () => window.removeEventListener("resize", detectMobile); // Clean up listener
   }, []);
 
+  // Fetch chart data when dependencies (currency, id, or days) change
   useEffect(() => {
     CoinChartData();
   }, [currency, id, days]);
 
-  // Apply filtering only for mobile
+  // Filter data points to optimize chart rendering for mobile and desktop views
   const filteredData = isMobile
-    ? chartData.filter((_, index) => index % Math.ceil(chartData.length / 60) === 0) // Sample up to 60 points for mobile
-    : chartData.filter((_, index) => index % Math.ceil(chartData.length / 300) === 0) // Sample up to 300 points for desktop
+    ? chartData.filter((_, index) => index % Math.ceil(chartData.length / 60) === 0) // Mobile: Max 60 points
+    : chartData.filter((_, index) => index % Math.ceil(chartData.length / 300) === 0); // Desktop: Max 300 points
 
+  // Prepare data for Chart.js
   const myData = {
     labels: filteredData.map((value) => {
       const date = new Date(value[0]);
@@ -70,6 +81,7 @@ const CoinChart = ({ currency = "usd" }) => {
       const minutes = date.getMinutes().toString().padStart(2, "0");
       const isPM = hours >= 12;
 
+      // Format time for daily data, or show date for longer periods
       const time = isPM
         ? `${hours === 12 ? 12 : hours - 12}:${minutes} PM`
         : `${hours === 0 ? 12 : hours}:${minutes} AM`;
@@ -80,26 +92,27 @@ const CoinChart = ({ currency = "usd" }) => {
     datasets: [
       {
         label: `Price in Past ${days} Days in ${currency.toUpperCase()}`,
-        data: filteredData.map((value) => value[1]),
-        borderColor: "#9823db",
-        borderWidth: 2,
+        data: filteredData.map((value) => value[1]), // Use only price values
+        borderColor: "#9823db", // Line color
+        borderWidth: 2, // Line thickness
       },
     ],
   };
 
+  // Chart.js options for customizing the chart appearance
   const options = {
     maintainAspectRatio: true,
     responsive: true,
     elements: {
       point: {
-        radius: 1,
+        radius: 1, // Size of data points
       },
     },
     plugins: {
       legend: {
         labels: {
           font: {
-            size: 12,
+            size: 12, // Font size for legend
           },
         },
       },
@@ -107,18 +120,18 @@ const CoinChart = ({ currency = "usd" }) => {
     scales: {
       x: {
         grid: {
-          color: "rgba(255, 255, 255, 0.2)", 
+          color: "rgba(255, 255, 255, 0.2)", // Grid line color
         },
         ticks: {
-          color: "#ffffff", 
+          color: "#ffffff", // X-axis tick color
         },
       },
       y: {
         grid: {
-          color: "rgba(255, 255, 255, 0.2)", 
+          color: "rgba(255, 255, 255, 0.2)", // Grid line color
         },
         ticks: {
-          color: "#ffffff", 
+          color: "#ffffff", // Y-axis tick color
         },
       },
     },
@@ -127,10 +140,13 @@ const CoinChart = ({ currency = "usd" }) => {
   return (
     <>
       {chartData.length === 0 ? (
+        // Display loader while data is being fetched
         <Loader />
       ) : (
         <div className="chart-container">
+          {/* Render line chart */}
           <Line className="chart" data={myData} options={options} />
+          {/* Time period selection buttons */}
           <div
             className="btn"
             style={{

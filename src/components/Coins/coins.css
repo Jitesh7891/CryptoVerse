@@ -9,7 +9,8 @@
 }
 
 .coin-table-container {
-    max-height: 48vh;/* Limit the height for scrolling */
+    max-height: 48vh;
+    /* Limit the height for scrolling */
     overflow-y: auto;
     background-color: rgb(39, 39, 39);
 }
@@ -21,6 +22,7 @@
     font-size: 2.5rem;
     position: fixed;
     top: 18vh;
+    color: rgb(197, 194, 255);
 }
 
 .coin-table {
@@ -101,9 +103,10 @@ button {
 
 .btns>button:hover {
     background-color: #af4fe7;
-    transform: scale(1.1); 
-    box-shadow: 0 4px 10px rgba(175, 79, 231, 0.6); /* Add glowing shadow */
-  }
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(175, 79, 231, 0.6);
+    /* Add glowing shadow */
+}
 
 .search-bar input {
     height: 1.7rem;
@@ -117,8 +120,6 @@ button {
     border: none;
     outline: none;
 }
-
-
 
 @media only screen and (max-width: 700px) {
 

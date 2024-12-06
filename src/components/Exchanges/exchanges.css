@@ -1,104 +1,171 @@
 .ex-container {
-    margin-top: 28vh;
-    padding: 2rem;
-    min-width: 100vw;
+  margin-top: 28vh;
+  padding: 2rem;
+  min-width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
+  scroll-behavior: none;
+  z-index: 2;
+}
+
+.ex-table-container {
+  max-height: 50vh;
+  /* Limit the height for scrolling */
+  overflow-y: auto;
+  background-color: rgb(39, 39, 39);
+}
+
+.ex-table {
+  width: 100%;
+}
+
+
+.ex-title {
+  min-height: 7vh;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  top: 16.4vh;
+  padding-top: 1rem;
+  font-size: 2.3rem;
+  letter-spacing: 1.5px;
+  min-width: 100vw;
+  z-index: 5;
+  color: rgb(197, 194, 255);
+  background: rgb(39, 39, 39);
+}
+
+.ex-table {
+  width: 98%;
+  margin: 0 auto;
+  color: rgb(234, 255, 255);
+}
+
+.ex-table thead th {
+  position: sticky;
+  top: -0.1rem;
+  background-color: rgb(39, 39, 39);
+  z-index: 2;
+  padding: 1rem;
+  color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.ex-table th,
+.ex-table td {
+  padding: 1rem;
+  padding-top: 2rem;
+  text-align: center;
+  border: 1px solid rgb(60, 60, 60);
+}
+
+.ex-table th {
+  background-color: rgb(39, 39, 39);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.ex-table td img {
+  height: 50px;
+}
+
+.ex-table tr:nth-child(even) {
+  background-color: rgb(45, 45, 45);
+}
+
+.ex-table tr:nth-child(odd) {
+  background-color: rgb(35, 35, 35);
+}
+
+.search-bar {
+  height: 1.7rem;
+  border-radius: 50px;
+  width: 14rem;
+  z-index: 10;
+  position: fixed;
+  top: 5%;
+  left: 40%;
+  padding-left: 5px;
+  border: none;
+  outline: none;
+}
+
+.ex-btns {
+  width: 100vw;
+  top: 12rem;
+  z-index: 4;
+  position: sticky;
+  margin-bottom: 6vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ex-btns>button {
+  background-color: #9823db;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 10px;
+  margin-top: -3vh;
+  margin-bottom: 1vh;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  min-width: 14vw;
+}
+
+.ex-btns>button:hover {
+  background-color: #af4fe7;
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(175, 79, 231, 0.6);
+  /* Add glowing shadow */
+}
+
+
+@media screen and (max-width: 700px) {
+  .ex-title {
+    font-size: 1.3rem;
+    top: 15vh;
+  }
+
+  .ex-container {
+    margin-top: 20vh;
     padding-left: 0;
-    padding-right: 0;
-    scroll-behavior: none;
-    z-index: 2;
   }
 
   .ex-table-container {
-    max-height: 60vh; /* Limit the height for scrolling */
-    overflow-y: auto; 
-    background-color: rgb(39, 39, 39); 
-  }
-  
-  .ex-table {
-    width: 100%;
-  }
-  
-  
-  .ex-title {
-    min-height: 7vh;
-    display: flex;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    top: 16.4vh;
-    padding-top: 1rem;
-    font-size: 2.3rem;
-    letter-spacing: 1.5px;
-    min-width: 100vw;
-    z-index: 5;
-    color: rgb(197, 194, 255);
-    background: rgb(39, 39, 39);
-}
-  
-  .ex-table {
-    width: 98%;
-    margin: 0 auto;
-    color: rgb(234, 255, 255);
+    max-height: 60vh;
+    /* Limit the height for scrolling */
   }
 
-  .ex-table thead th {
-    position: sticky;
-    top:-0.1rem;
-    background-color: rgb(39, 39, 39); 
-    z-index: 2; 
-    padding: 1rem;
-    color: white;
-    border-bottom: 1px solid #ccc;
+  .ex-table th,
+  .ex-table td {
+    padding: 0.5rem;
+    font-size: 0.8rem;
   }
-  
 
-   .ex-table th, .ex-table td {
-    padding: 1rem;
-    padding-top: 2rem;
-    text-align: center;
-    border: 1px solid rgb(60, 60, 60);
-  }
-  
-  .ex-table th {
-    background-color: rgb(39, 39, 39);
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
   .ex-table td img {
-    height: 50px;
+    height: 30px;
   }
-  
-  .ex-table tr:nth-child(even) {
-    background-color: rgb(45, 45, 45);
-  }
-  
-  .ex-table tr:nth-child(odd) {
-    background-color: rgb(35, 35, 35);
-  }
-  
-  @media screen and (max-width: 700px) {
-    .ex-title {
-      font-size: 1.5rem;
-      top: 10vh;
-    }
 
-    .ex-container{
-        margin-top: 18vh;
-        padding-left: 0;
-    }
-
-    .ex-table-container{
-        max-height: 80vh;
-    }
-  
-    .ex-table th, .ex-table td {
-      padding: 0.5rem;
-      font-size: 0.8rem;
-    }
-  
-    .ex-table td img {
-      height: 30px;
-    }
+  .search-bar {
+    position: fixed;
+    top: 12%;
+    left: 7%;
+    max-width: 70vw;
   }
-  
+
+  .ex-btns>button {
+    font-size: 0.8rem;
+    flex: 1 1 45%;
+    max-width: 39vw;
+    margin-top: 2vh;
+  }
+
+  .ex-btns {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+}
