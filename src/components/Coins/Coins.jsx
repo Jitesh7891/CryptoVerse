@@ -132,7 +132,7 @@ const Coins = () => {
                         {coin.market_cap}
                       </td>
                       <td>
-                        <img src={coin.image} alt={coin.name} height="50" />
+                        <img src={coin.image} alt={coin.name} height="50"  loading="lazy" />
                       </td>
                     </tr>
                   ))}

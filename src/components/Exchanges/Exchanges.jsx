@@ -117,7 +117,7 @@ const Exchanges = () => {
                       <td>{exchange.name}</td>
                       <td>{exchange.trade_volume_24h_btc.toFixed(2)} BTC</td>
                       <td>
-                        <img src={exchange.image} alt={exchange.name} height="50" />
+                        <img src={exchange.image} alt={exchange.name} height="50"  loading="lazy" />
                       </td>
                     </tr>
                   ))}

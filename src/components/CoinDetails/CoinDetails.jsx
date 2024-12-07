@@ -77,7 +77,7 @@ const CoinDetails = () => {
 
               {/* Coin image */}
               <div className="coin-image">
-                <img height={"150px"} src={coin.image.large} alt={coin.name} />
+                <img height={"150px"} src={coin.image.large} alt={coin.name}  loading="lazy" />
               </div>
 
               {/* Coin name */}
