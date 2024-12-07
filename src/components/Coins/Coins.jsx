@@ -95,7 +95,7 @@ const Coins = () => {
               Sort by Price &nbsp;{sortPriceAsc ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </button>
             <button onClick={sortByMarketCap}>
-              Filter by Market Cap &nbsp;{sortMarketCapAsc ? <IoIosArrowUp /> : <IoIosArrowDown />}
+              Sort by Market Cap &nbsp;{sortMarketCapAsc ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </button>
           </div>
 
