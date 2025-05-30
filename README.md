@@ -1,7 +1,3 @@
-# **API Integration Dashboard**
-
-This project demonstrates the integration of an external API to fetch and display data interactively.
-
 ## **Live Site**
 To view the live site of this project, please visit:  
 [**Live Site**](https://cryptoverse-0ai7.onrender.com)
