@@ -31,6 +31,17 @@ const Coins = () => {
   // Determine the currency symbol based on the selected currency
   const currencySymbol = currency === 'inr' ? '₹' : '$';
 
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300); // debounce delay: 300ms
+
+    return () => clearTimeout(handler);
+  }, [search]);
+
+
   // Fetch coins data from API whenever the selected currency changes
   useEffect(() => {
     const getCoinsData = async () => {
@@ -51,7 +62,7 @@ const Coins = () => {
 
   // Function to sort coins by their current price
   const sortByPrice = () => {
-    const sortedCoins = [...coins].sort((a, b) => 
+    const sortedCoins = [...coins].sort((a, b) =>
       sortPriceAsc ? a.current_price - b.current_price : b.current_price - a.current_price
     );
     setCoins(sortedCoins);
@@ -112,10 +123,9 @@ const Coins = () => {
               </thead>
               <tbody>
                 {/* Filter coins by search input and map over filtered results */}
-                {coins
-                  .filter((coin) =>
-                    coin.name.toLowerCase().includes(search.toLowerCase())
-                  )
+                {coins.filter((coin) =>
+                  coin.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+                )
                   .map((coin, index) => (
                     <tr
                       key={index}
@@ -132,7 +142,7 @@ const Coins = () => {
                         {coin.market_cap}
                       </td>
                       <td>
-                        <img src={coin.image} alt={coin.name} height="50"  loading="lazy" />
+                        <img src={coin.image} alt={coin.name} height="50" loading="lazy" />
                       </td>
                     </tr>
                   ))}
